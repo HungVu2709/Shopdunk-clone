@@ -7,15 +7,18 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import RouterManager from './routes';
+import { BrowserRouter } from 'react-router-dom';
 
 export const history = createBrowserHistory();
 
 const App = () => {
   return (
-    <HistoryRouter history={history}>
+    <BrowserRouter>
+      {/* <HistoryRouter history={history}> */}
       <RouterManager />
       <ToastContainer autoClose={1000} />
-    </HistoryRouter>
+      {/* </HistoryRouter> */}
+    </BrowserRouter>
   );
 };
 export default App;
