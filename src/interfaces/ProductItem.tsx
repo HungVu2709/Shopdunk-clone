@@ -5,7 +5,7 @@ export interface IProductItemDetail {
   ShortDescription?: string;
   Images: {
     Id: number;
-    Link: string;
+    Link: any;
   }[];
   FullDescription?: string;
   Quantity?: number;
@@ -52,21 +52,4 @@ export interface IProductsCart {
     Status: boolean;
   };
   Quantity: number;
-}
-
-export interface ProductDetail {
-  id: string;
-  name: string;
-  price: string;
-  short_description?: string;
-  image: string[];
-  full_description?: string;
-  quantity?: string;
-  color?: string;
-  product_type: {
-    id: string;
-    name: string;
-  };
-  capacity?: string[];
-  status: boolean;
 }

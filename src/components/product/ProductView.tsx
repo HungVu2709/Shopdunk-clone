@@ -16,7 +16,7 @@ const ProductView = (props: any) => {
   const [activeThumb, setActiveThumb] = useState<SwiperCore>();
   const [capacity, setCapacity] = useState<string | undefined>('');
   const [cartAmount, setCartAmount] = useState(1);
-  const isLogged = useAppSelector(state => state.auth.login.isLogged);
+  // const isLogged = useAppSelector(state => state.auth.login.isLogged);
   const product: IProductItemDetail = props.product;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -43,30 +43,30 @@ const ProductView = (props: any) => {
     return true;
   };
 
-  const handleAddToCart = async () => {
-    try {
-      if (isLogged) {
-        if (check()) {
-          let item = {
-            ProductId: product.Id,
-            Quantity: cartAmount,
-          };
-          await addToCart(item);
-          const res = await getCart();
-          dispatch(setCart(res.Data));
-          toast.success(
-            <ToastAdd link="/cart" text="Go to cart">
-              {product.Name}
-            </ToastAdd>,
-          );
-        }
-      } else {
-        navigate('/login', { replace: true, state: { from: location } });
-      }
-    } catch (error) {
-      throw error;
-    }
-  };
+  // const handleAddToCart = async () => {
+  //   try {
+  //     if (isLogged) {
+  //       if (check()) {
+  //         let item = {
+  //           ProductId: product.Id,
+  //           Quantity: cartAmount,
+  //         };
+  //         await addToCart(item);
+  //         const res = await getCart();
+  //         dispatch(setCart(res.Data));
+  //         toast.success(
+  //           <ToastAdd link="/cart" text="Go to cart">
+  //             {product.Name}
+  //           </ToastAdd>,
+  //         );
+  //       }
+  //     } else {
+  //       navigate('/login', { replace: true, state: { from: location } });
+  //     }
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // };
 
   if (!product) {
     return <div>Loading</div>;
@@ -157,7 +157,11 @@ const ProductView = (props: any) => {
               </div>
             </div>
             <div className="product__info__item">
-              <ButtonDunk type="button" text="Add to cart" onClick={() => handleAddToCart()} />
+              <ButtonDunk
+                type="button"
+                text="Add to cart"
+                // onClick={() => handleAddToCart()}
+              />
             </div>
           </div>
         </div>
