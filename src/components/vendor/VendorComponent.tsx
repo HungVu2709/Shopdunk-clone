@@ -6,7 +6,7 @@ import { getVendorProduct } from '../../services/vendor';
 import Pagination from '../catalog/Pagination';
 import AddProductModal from './AddProductModal';
 import './vendor.css';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import ItemProductVendor from './ItemProductVendor';
 import SpinnerLoading from '../common/SpinnerLoading';
 
@@ -121,14 +121,14 @@ const Vendor = () => {
           <button type="button" className="btn btn-primary mb-3" id="add-btn" onClick={toggleModal}>
             Add product
           </button>
-          <Modal isOpen={isOpenModal} style={customStyles} onRequestClose={toggleModal}>
+          {/* <Modal isOpen={isOpenModal} style={customStyles} onRequestClose={toggleModal}>
             <AddProductModal />
             <div className="d-grid gap-2 justify-content-center mx-auto">
               <button className="btn btn-primary" type="button" onClick={toggleModal}>
                 CLOSE
               </button>
             </div>
-          </Modal>
+          </Modal> */}
         </div>
 
         {loading ? (
