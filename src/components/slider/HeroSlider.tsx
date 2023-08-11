@@ -19,39 +19,25 @@ const HeroSlider = () => {
       className="home-swiper"
     >
       <SwiperSlide>
-        <img
-          className="image-cover"
-          src="https://shopdunk.com/wp-content/uploads/2022/06/Banner-PC-macbook-air-DKT-1-1.jpg"
-          alt=""
-        />
+        <img className="image-cover" src={require('../../assets/banner-img/banner1.png')} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img
-          className="image-cover"
-          src="https://shopdunk.com/wp-content/uploads/2022/06/Banner-PC-1.jpg"
-          alt=""
-        />
+        <img className="image-cover" src={require('../../assets/banner-img/banner2.jpg')} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img
-          className="image-cover"
-          src="https://shopdunk.com/wp-content/uploads/2022/06/Banner-PC-macbook-air-M2-2.jpg"
-          alt=""
-        />
+        <img className="image-cover" src={require('../../assets/banner-img/banner3.jpg')} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img
-          className="image-cover"
-          src="https://shopdunk.com/wp-content/uploads/2022/05/Banner-PC-imac.jpg"
-          alt=""
-        />
+        <img className="image-cover" src={require('../../assets/banner-img/banner4.jpg')} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img
-          className="image-cover"
-          src="https://shopdunk.com/wp-content/uploads/2022/05/Banner-Web-1.jpg"
-          alt=""
-        />
+        <img className="image-cover" src={require('../../assets/banner-img/banner5.jpg')} alt="" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img className="image-cover" src={require('../../assets/banner-img/banner6.jpg')} alt="" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img className="image-cover" src={require('../../assets/banner-img/banner7.png')} alt="" />
       </SwiperSlide>
     </Swiper>
   );

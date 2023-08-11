@@ -1,17 +1,18 @@
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductCard from '../product/ProductCard';
+import { IProductItemDetail, ProductDetail } from '../../interfaces/ProductItem';
 
 export type IProduct = {
   Id: number;
   Images: { Id: number; Link: string }[];
   Name: string;
   Price: number;
-  Quantity: number;
+  Quantity: string;
   ShortDescription?: string;
 };
 
-const SlideProduct = (props: { products: IProduct[] }) => {
+const SlideProduct = (props: { products: ProductDetail[] }) => {
   return (
     <Swiper
       slidesPerView={1}
@@ -42,10 +43,10 @@ const SlideProduct = (props: { products: IProduct[] }) => {
       {props.products.map((item, index) => (
         <SwiperSlide key={`product-${index}`}>
           <ProductCard
-            image={item.Images[0]?.Link}
-            name={item.Name}
-            price={item.Price}
-            id={item.Id}
+            image={item.image[0]}
+            name={item.name}
+            price={Number(item.price)}
+            id={Number(item.id)}
           />
         </SwiperSlide>
       ))}

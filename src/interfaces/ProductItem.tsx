@@ -53,3 +53,20 @@ export interface IProductsCart {
   };
   Quantity: number;
 }
+
+export interface ProductDetail {
+  id: string;
+  name: string;
+  price: string;
+  short_description?: string;
+  image: string[];
+  full_description?: string;
+  quantity?: string;
+  color?: string;
+  product_type: {
+    id: string;
+    name: string;
+  };
+  capacity?: string[];
+  status: boolean;
+}

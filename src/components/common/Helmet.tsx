@@ -5,7 +5,7 @@ interface Prop {
   children?: React.ReactNode | JSX.Element[];
 }
 const Helmet = (props: Prop) => {
-  document.title = 'Hungstore-' + props.title;
+  document.title = `${props.title}`;
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

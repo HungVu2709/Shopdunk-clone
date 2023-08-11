@@ -1,34 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import policy from '../../assets/fake-data/policy';
-import { HomepageRequest } from '../../interfaces/auth';
-import { homepageproduct } from '../../services/product';
 import Grid from '../common/Grid';
 import Helmet from '../common/Helmet';
 import HeroSlider from '../slider/HeroSlider';
 import PolicyCard from './PolicyCard';
 import Section, { SectionBody, SectionTitle } from './Section';
 import SlideProduct from './SlideProduct';
+import productData from '../../assets/fake-data/products';
+import { log } from 'console';
 
 const HomePage = () => {
-  const [products, setProducts] = useState([] as any);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage, setProductPerPage] = useState(2);
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        setLoading(true);
-        const res: HomepageRequest = await homepageproduct();
-        setProducts(res.Data[0].Products);
-        setLoading(false);
-      } catch (error) {
-        throw error;
-      }
-    };
-    getData();
-  }, []);
+  const products = productData.getAllProducts();
 
   if (!products) {
     return <div>Loading</div>;
