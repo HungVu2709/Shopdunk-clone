@@ -378,6 +378,12 @@ const getProducts = count => {
 };
 const getProductById = Id => products.find(e => e.Id === Id);
 
+const getIphoneProducts = () => {
+  return products.slice(0, 4);
+};
+const getIpadProducts = () => {
+  return products.slice(4, 8);
+};
 const getCartItemsInfo = cartItems => {
   let res = [];
   if (cartItems.length > 0) {
@@ -397,6 +403,8 @@ const productData = {
   getProducts,
   getProductById,
   getCartItemsInfo,
+  getIphoneProducts,
+  getIpadProducts,
 };
 
 export default productData;

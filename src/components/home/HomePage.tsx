@@ -10,7 +10,8 @@ import productData from '../../assets/fake-data/products';
 
 const HomePage = () => {
   const products = productData.getAllProducts();
-
+  const iPhoneProducts = productData.getIphoneProducts();
+  const iPadProducts = productData.getIpadProducts();
   if (!products) {
     return <div>Loading</div>;
   }
@@ -33,20 +34,18 @@ const HomePage = () => {
         <Section>
           <SectionTitle>iPhone</SectionTitle>
           <SectionBody>
-            <SlideProduct products={products} />
+            <SlideProduct products={iPhoneProducts} />
           </SectionBody>
         </Section>
         <Section>
           <SectionTitle>iPad</SectionTitle>
           <SectionBody>
-            <SlideProduct products={products} />
+            <SlideProduct products={iPadProducts} />
           </SectionBody>
         </Section>
         <Section>
           <SectionTitle>Macbook</SectionTitle>
-          <SectionBody>
-            <SlideProduct products={products} />
-          </SectionBody>
+          <SectionBody>{/* <SlideProduct products={products} /> */}</SectionBody>
         </Section>
       </Helmet>
     </>
