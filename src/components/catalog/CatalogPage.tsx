@@ -12,9 +12,9 @@ import querystring from 'querystring';
 import Pagination from './Pagination';
 import Spinner from 'react-bootstrap/Spinner';
 import { useSearchParams } from 'react-router-dom';
-import { setTimeout } from 'timers/promises';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import SpinnerLoading from '../common/SpinnerLoading';
+import productData from '../../assets/fake-data/products.js';
 interface IFilter {
   capacity: string[];
 }
@@ -29,19 +29,17 @@ const initFilter: IFilter = {
 };
 
 const CatalogPage = () => {
-  // list product
   const [searchParams, setSearchParams] = useSearchParams();
-  // let updatedSearchParams = new URLSearchParams(searchParams.toString());
-  // updatedSearchParams.set('operation', 'edit');
-  // setSearchParams(updatedSearchParams.toString());
-
   const [sortParams, setSortParams] = useSearchParams();
   const [capacityParams, setCapacityParams] = useSearchParams();
   const capacityQuery = capacityParams.get('query') || '';
 
   const [searchProduct, setSearchProduct] = useState<string>(searchParams.get('keyword') || '');
-  const [productCatalog, setProductCatalog] = useState<IProductItemDetail[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+
+  // const [productCatalog, setProductCatalog] = useState<IProductItemDetail[]>([]);
+  const productCatalog = productData.getAllProducts();
+
+  const [loading, setLoading] = useState<boolean>(true);
   // sort by
   const [sortValue, setSortValue] = useState<string>(sortParams.get('sort') || '');
   const [sortByName, setSortByName] = useState<string>('');
@@ -98,7 +96,7 @@ const CatalogPage = () => {
             filter.capacity.includes(product.Capacity?.Name!),
           );
         }
-        setProductCatalog(temp);
+        // setProductCatalog(temp);
       } catch (err) {
         console.log(err);
       }
@@ -172,7 +170,7 @@ const CatalogPage = () => {
           <div className="catalog__filter__close" onClick={() => showHideFilter()}>
             <i className="bx bx-left-arrow-alt" />
           </div>
-          <div className="catalog__filter__widget">
+          {/* <div className="catalog__filter__widget">
             <div className="catalog__filter__widget__title">Search</div>
             <div className="catalog__filter__widget__content__search">
               <input
@@ -183,8 +181,8 @@ const CatalogPage = () => {
               />
               <i className="bx bx-search" />
             </div>
-          </div>
-          <div className="catalog__filter__widget">
+          </div> */}
+          {/* <div className="catalog__filter__widget">
             <div className="catalog__filter__widget__title">Sort</div>
             <div className="catalog__filter__widget__content">
               <select
@@ -211,9 +209,9 @@ const CatalogPage = () => {
                 </option>
               </select>
             </div>
-          </div>
+          </div> */}
 
-          <div className="catalog__filter__widget">
+          {/* <div className="catalog__filter__widget">
             <div className="catalog__filter__widget__title">Capacity</div>
             <div className="catalog__filter__widget__content">
               {capacitys.map((item, index) => (
@@ -230,10 +228,10 @@ const CatalogPage = () => {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="catalog__filter__widget">
+          </div> */}
+          {/* <div className="catalog__filter__widget">
             <ButtonDunk type="button" text="Clear filter" onClick={clearFilter} />
-          </div>
+          </div> */}
         </div>
         <div className="catalog__filter__toggle">
           <ButtonDunk type="button" text="Filter" onClick={showHideFilter} />
