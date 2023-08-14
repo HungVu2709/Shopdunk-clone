@@ -1,5 +1,5 @@
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { history } from '../App';
+// import { history } from '../App';
 
 const __DEV__ = process.env.NODE_ENV === 'development';
 
@@ -63,7 +63,7 @@ Instance.interceptors.response.use(
 
     // TODO: handle refresh token
     if (errorMessage === 401) {
-      history.push('/login');
+      // history.push('/login');
     }
 
     if (errorMessage) {

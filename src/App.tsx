@@ -1,4 +1,4 @@
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +9,7 @@ import 'swiper/css/thumbs';
 import RouterManager from './routes';
 import { BrowserRouter } from 'react-router-dom';
 
-export const history = createBrowserHistory();
+// export const history = createBrowserHistory();
 
 const App = () => {
   return (
